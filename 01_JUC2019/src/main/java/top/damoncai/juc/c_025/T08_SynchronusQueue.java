@@ -9,7 +9,9 @@ public class T08_SynchronusQueue { //ÈÝÁ¿Îª0
 		
 		new Thread(()->{
 			try {
-				System.out.println(strs.take());
+				while (true) {
+					System.out.println(strs.take());
+				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

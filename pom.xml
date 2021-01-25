@@ -10,6 +10,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>01_JUC2019</module>
+        <module>02_JVM</module>
+        <module>03_Tank</module>
+        <module>04_DesignPatterns</module>
     </modules>
     <dependencies>
         <dependency>
