@@ -1,0 +1,26 @@
+spring:
+  kafka:
+    bootstrap-servers: master:9092,node1:9092,node2:9092
+    producer:
+      acks: all
+      retries: 5
+      batch-size: 16384
+      buffer-memory: 33554432
+      transaction-id-prefix: transaction-id-
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        enable:
+          idempotence: true
+    consumer:
+      group-id: default-group
+      auto-offset-reset: earliest # 1. topic03中存在两条数据 2. 第一次被某个消费者组订阅会重头消费
+      enable-auto-commit: true
+      auto-commit-interval: 100
+      properties:
+        isolation.level:
+          read_committed
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#    listener:
+#      ack-mode: manual

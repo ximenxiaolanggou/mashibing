@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="02_JVM" />
+        <module name="03_Tank" />
+        <module name="04_DesignPatterns" />
+        <module name="cloud-eureka" />
+        <module name="07_SpringBoot_Kafka" />
+        <module name="01_JUC2019" />
+        <module name="06_Kafka" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="01_JUC2019" options="-parameters" />
+      <module name="02_JVM" options="-parameters" />
+      <module name="03_Tank" options="-parameters" />
+      <module name="04_DesignPatterns" options="-parameters" />
+      <module name="06_Kafka" options="-parameters" />
+      <module name="07_SpringBoot_Kafka" options="-parameters" />
+      <module name="cloud-eureka" options="-parameters" />
+    </option>
+  </component>
+</project>
