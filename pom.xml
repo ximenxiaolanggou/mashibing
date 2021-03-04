@@ -22,6 +22,8 @@
         <module>05_Online_Taxi</module>
         <module>06_Kafka</module>
         <module>07_SpringBoot_Kafka</module>
+        <module>08_Algorithm</module>
+        <module>09_Zookeeper</module>
     </modules>
     <dependencies>
         <dependency>
