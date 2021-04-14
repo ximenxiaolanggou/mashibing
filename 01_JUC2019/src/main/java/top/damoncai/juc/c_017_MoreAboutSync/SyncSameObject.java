@@ -1,7 +1,7 @@
 /**
- * Ëø¶¨Ä³¶ÔÏóo£¬Èç¹ûoµÄÊôÐÔ·¢Éú¸Ä±ä£¬²»Ó°ÏìËøµÄÊ¹ÓÃ
- * µ«ÊÇÈç¹ûo±ä³ÉÁíÍâÒ»¸ö¶ÔÏó£¬ÔòËø¶¨µÄ¶ÔÏó·¢Éú¸Ä±ä
- * Ó¦¸Ã±ÜÃâ½«Ëø¶¨¶ÔÏóµÄÒýÓÃ±ä³ÉÁíÍâµÄ¶ÔÏó
+ * é”å®šæŸå¯¹è±¡oï¼Œå¦‚æžœoçš„å±žæ€§å‘ç”Ÿæ”¹å˜ï¼Œä¸å½±å“é”çš„ä½¿ç”¨
+ * ä½†æ˜¯å¦‚æžœoå˜æˆå¦å¤–ä¸€ä¸ªå¯¹è±¡ï¼Œåˆ™é”å®šçš„å¯¹è±¡å‘ç”Ÿæ”¹å˜
+ * åº”è¯¥é¿å…å°†é”å®šå¯¹è±¡çš„å¼•ç”¨å˜æˆå¦å¤–çš„å¯¹è±¡
  * @author mashibing
  */
 package top.damoncai.juc.c_017_MoreAboutSync;
@@ -30,7 +30,7 @@ public class SyncSameObject {
 	
 	public static void main(String[] args) {
 		SyncSameObject t = new SyncSameObject();
-		//Æô¶¯µÚÒ»¸öÏß³Ì
+		//å¯åŠ¨ç¬¬ä¸€ä¸ªçº¿ç¨‹
 		new Thread(t::m, "t1").start();
 		
 		try {
@@ -38,10 +38,10 @@ public class SyncSameObject {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		//´´½¨µÚ¶þ¸öÏß³Ì
+		//åˆ›å»ºç¬¬äºŒä¸ªçº¿ç¨‹
 		Thread t2 = new Thread(t::m, "t2");
 		
-		t.o = new Object(); //Ëø¶ÔÏó·¢Éú¸Ä±ä£¬ËùÒÔt2Ïß³ÌµÃÒÔÖ´ÐÐ£¬Èç¹û×¢ÊÍµôÕâ¾ä»°£¬Ïß³Ì2½«ÓÀÔ¶µÃ²»µ½Ö´ÐÐ»ú»á
+		t.o = new Object(); //é”å¯¹è±¡å‘ç”Ÿæ”¹å˜ï¼Œæ‰€ä»¥t2çº¿ç¨‹å¾—ä»¥æ‰§è¡Œï¼Œå¦‚æžœæ³¨é‡ŠæŽ‰è¿™å¥è¯ï¼Œçº¿ç¨‹2å°†æ°¸è¿œå¾—ä¸åˆ°æ‰§è¡Œæœºä¼š
 		
 		t2.start();
 		

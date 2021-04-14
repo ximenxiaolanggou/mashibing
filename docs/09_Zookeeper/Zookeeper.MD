@@ -24,7 +24,7 @@
 
 4. 向其他集群发送zookpeer文件
 
-   ```shell
+   ```shell 
    scp zookeeper-3.4.6/ node1:/home/
    
    scp zookeeper-3.4.6/ node2:/home/

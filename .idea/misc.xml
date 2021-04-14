@@ -11,6 +11,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/08_Arithmetic_Basics/pom.xml" />
         <option value="$PROJECT_DIR$/cloud-eureka/pom.xml" />
       </set>
     </option>

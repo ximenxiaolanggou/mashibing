@@ -2,7 +2,13 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/01_JUC2019/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01_JUC2019/src/main/java/top/damoncai/juc/c_004/T.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01_JUC2019/src/main/java/top/damoncai/juc/c_008/Account.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01_JUC2019/src/main/java/top/damoncai/juc/c_010/T.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/01_JUC2019/src/main/java/top/damoncai/juc/c_012_Volatile/T01_HelloVolatile.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01_JUC2019/src/main/java/top/damoncai/juc/c_017_MoreAboutSync/DoNotLockString.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01_JUC2019/src/main/java/top/damoncai/juc/c_017_MoreAboutSync/SyncSameObject.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/01_JUC2019/src/main/java/top/damoncai/juc/c_018_00_AtomicXXX/T01_AtomicInteger.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/01_JUC2019/src/main/java/top/damoncai/juc/c_020/T01_ReentrantLock1.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/01_JUC2019/src/main/java/top/damoncai/juc/c_022_RefTypeAndThreadLocal/T04_PhantomReference.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/01_JUC2019/src/main/java/top/damoncai/juc/c_025/T03_SynchronizedList.java" charset="UTF-8" />
@@ -17,5 +23,9 @@
     <file url="file://$PROJECT_DIR$/06_Kafka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/07_SpringBoot_Kafka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/07_SpringBoot_Kafka/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/08_Algorithm/01_Basics/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/09_Zookeeper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/10_RocketMQ/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/11_MyCat/src/main/java" charset="UTF-8" />
   </component>
 </project>

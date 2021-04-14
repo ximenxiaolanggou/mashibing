@@ -24,6 +24,8 @@
         <module>07_SpringBoot_Kafka</module>
         <module>08_Algorithm</module>
         <module>09_Zookeeper</module>
+        <module>10_RocketMQ</module>
+        <module>11_MyCat</module>
     </modules>
     <dependencies>
         <dependency>
