@@ -1,0 +1,12 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web
+spec:
+  rules:
+  - host: example.atguigu.com
+    http:
+      paths:
+        - backend:
+            serviceName: tomcat6
+            servicePort: 80

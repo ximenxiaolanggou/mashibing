@@ -27,5 +27,7 @@
     <file url="file://$PROJECT_DIR$/09_Zookeeper/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/10_RocketMQ/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/11_MyCat/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/12_Sharding-Shpere/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/13_K8S_Cluster_Deployment/src/main/java" charset="UTF-8" />
   </component>
 </project>

@@ -8,14 +8,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="09_Zookeeper" />
-        <module name="02_JVM" />
-        <module name="03_Tank" />
-        <module name="04_DesignPatterns" />
-        <module name="11_MyCat" />
         <module name="01_Basics" />
         <module name="cloud-eureka" />
         <module name="07_SpringBoot_Kafka" />
         <module name="01_JUC2019" />
+        <module name="12_Sharding-Shpere" />
+        <module name="02_JVM" />
+        <module name="03_Tank" />
+        <module name="04_DesignPatterns" />
+        <module name="13_K8S_Cluster_Deployment" />
+        <module name="11_MyCat" />
         <module name="06_Kafka" />
         <module name="10_RocketMQ" />
       </profile>
@@ -38,6 +40,8 @@
       <module name="09_Zookeeper" options="-parameters" />
       <module name="10_RocketMQ" options="-parameters" />
       <module name="11_MyCat" options="-parameters" />
+      <module name="12_Sharding-Shpere" options="-parameters" />
+      <module name="13_K8S_Cluster_Deployment" options="-parameters" />
       <module name="cloud-eureka" options="-parameters" />
     </option>
   </component>

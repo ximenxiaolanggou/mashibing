@@ -26,6 +26,8 @@
         <module>09_Zookeeper</module>
         <module>10_RocketMQ</module>
         <module>11_MyCat</module>
+        <module>12_Sharding-Shpere</module>
+        <module>13_K8S</module>
     </modules>
     <dependencies>
         <dependency>

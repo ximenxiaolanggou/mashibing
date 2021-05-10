@@ -1,0 +1,110 @@
+# 水平分表
+
+### 依赖
+
+```xml
+ <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.20</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+            <version>4.0.0-RC1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+```
+
+
+
+### 同一个数据库中创建两张表，course_1和course_2
+
+### 配置文件信息
+
+```properties
+# 一个实体类对应两张表，覆盖
+spring.main.allow-bean-definition-overriding=true
+
+# shardingjdbc分片策略
+# 配置数据源，给数据源起名称,
+# 水平分库，配置两个数据源
+spring.shardingsphere.datasource.names=m1
+
+#配置第一个数据源具体内容，包含连接池，驱动，地址，用户名和密码
+spring.shardingsphere.datasource.m1.type=com.alibaba.druid.pool.DruidDataSource
+spring.shardingsphere.datasource.m1.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.m1.url=jdbc:mysql://localhost:3306/shardingsphere?serverTimezone=GMT%2B8
+spring.shardingsphere.datasource.m1.username=root
+spring.shardingsphere.datasource.m1.password=zhishun.cai
+
+
+# 指定course表分布情况，配置在哪个数据源里面，表明都是什么 m1.course_1 m1.course_2
+spring.shardingsphere.sharding.tables.course.actual-data-nodes=m1.course_$->{1..2}
+
+# 指定user表里面主键id 生成策略  SNOWFLAKE
+spring.shardingsphere.sharding.tables.course.key-generator.column=cid
+spring.shardingsphere.sharding.tables.course.key-generator.type=SNOWFLAKE
+
+# 指定表分片策略  约定cid值偶数添加到course_1表，如果cid是奇数添加到course_2表
+spring.shardingsphere.sharding.tables.course.table-strategy.inline.sharding-column=cid
+spring.shardingsphere.sharding.tables.course.table-strategy.inline.algorithm-expression=course_$->{cid % 2 + 1}
+
+
+# 打开sql输出日志
+spring.shardingsphere.props.sql.show=true
+```
+
+
+
+### 测试代码
+
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = App.class)
+public class ShardingShpereTest {
+
+    @Autowired
+    private CourseMapper courseMapper;
+
+    @Test
+    public void insert() {
+        for (int i = 0; i < 10; i++) {
+            Course course = new Course();
+            course.setName("数学" + i);
+            courseMapper.insert(course);
+        }
+    }
+}
+```
+
