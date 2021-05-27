@@ -48,4 +48,10 @@ https://kubesphere.io/zh/docs/pluggable-components/devops/
        enabled: true # Change "false" to "true"
    ```
 
+5. 查看安装进度
+
+   ```shell
+   kubectl logs -n kubesphere-system $(kubectl get pod -n kubesphere-system -l app=ks-install -o jsonpath='{.items[0].metadata.name}') -f
+   ```
+
    

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>13_K8S_Cluster_Deployment</artifactId>
+    <artifactId>14_Redis</artifactId>
 
 
 </project>

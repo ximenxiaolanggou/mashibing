@@ -16,8 +16,10 @@
         <module name="02_JVM" />
         <module name="03_Tank" />
         <module name="04_DesignPatterns" />
+        <module name="14_Redis" />
         <module name="13_K8S_Cluster_Deployment" />
         <module name="11_MyCat" />
+        <module name="16_LeetCode" />
         <module name="06_Kafka" />
         <module name="10_RocketMQ" />
       </profile>
@@ -42,6 +44,8 @@
       <module name="11_MyCat" options="-parameters" />
       <module name="12_Sharding-Shpere" options="-parameters" />
       <module name="13_K8S_Cluster_Deployment" options="-parameters" />
+      <module name="14_Redis" options="-parameters" />
+      <module name="16_LeetCode" options="-parameters" />
       <module name="cloud-eureka" options="-parameters" />
     </option>
   </component>

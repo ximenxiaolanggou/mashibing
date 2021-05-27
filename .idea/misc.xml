@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/05_Online_Taxi/cloud-eureka/pom.xml" />
         <option value="$PROJECT_DIR$/05_Online_Taxi/pom.xml" />
+        <option value="$PROJECT_DIR$/13_K8S_Cluster_Deployment/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

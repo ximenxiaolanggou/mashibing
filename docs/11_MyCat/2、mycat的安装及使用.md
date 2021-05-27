@@ -182,7 +182,7 @@ start slave;
 8、查看从服务器状态
 
 ```
-show slave status\G
+show slave status
 ```
 
 ​		当执行完成之后，会看到两个关键的属性Slave_IO_Running，Slave_SQL_Running，当这两个属性都是yes的时候，表示主从复制已经准备好了，可以进行具体的操作了

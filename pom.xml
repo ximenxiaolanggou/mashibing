@@ -27,7 +27,9 @@
         <module>10_RocketMQ</module>
         <module>11_MyCat</module>
         <module>12_Sharding-Shpere</module>
-        <module>13_K8S</module>
+        <module>13_K8S_Cluster_Deployment</module>
+        <module>14_Redis</module>
+        <module>16_LeetCode</module>
     </modules>
     <dependencies>
         <dependency>
