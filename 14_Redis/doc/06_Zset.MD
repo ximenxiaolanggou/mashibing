@@ -277,7 +277,7 @@ redis> ZRANGEBYLEX zset - + LIMIT 0 3
 
 可选参数WITHSCORES会返回元素和其分数，而不只是元素。这个选项在redis2.0之后的版本都可用。
 
-\##区间及无限
+\## 区间及无限
 
 min和max可以是-inf和+inf，这样一来，你就可以在不知道有序集的最低和最高score值的情况下，使用ZRANGEBYSCORE这类命令。
 
