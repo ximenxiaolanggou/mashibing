@@ -19,7 +19,7 @@ yum install -y java-1.8.0-openjdk*
 ## 使用清华源进行安装
 
 ```shell
-yum install -y https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat/jenkins-2.244-1.1.noarch.rpm
+yum install -y https://mirrors.tuna.tsinghua.edu.cn/jenkins/redhat/jenkins-2.299-1.1.noarch.rpm
 ```
 
 ## 进行配置
@@ -33,6 +33,8 @@ JENKINS_USER = root
 ```
 
 ![](./images/3.jpg)
+
+## systemctl restart jenkins（/var/lib/jenkins下才会有文件）
 
 ## 国内访问国外安装插件的问题！！！国内插件加速！(重要的地方)
 

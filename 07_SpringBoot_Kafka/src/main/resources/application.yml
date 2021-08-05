@@ -1,8 +1,8 @@
 spring:
   kafka:
-    bootstrap-servers: master:9092,node1:9092,node2:9092
+    bootstrap-servers: 192.168.111.11:9092,192.168.111.12:9092,192.168.111.13:9092
     producer:
-      acks: all
+      acks: all # ack 级别 保证数据不会丢失
       retries: 5
       batch-size: 16384
       buffer-memory: 33554432
@@ -11,16 +11,16 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       properties:
         enable:
-          idempotence: true
+          idempotence: true # 开启幂等性
     consumer:
       group-id: default-group
       auto-offset-reset: earliest # 1. topic03中存在两条数据 2. 第一次被某个消费者组订阅会重头消费
-      enable-auto-commit: true
+      enable-auto-commit: false
       auto-commit-interval: 100
       properties:
         isolation.level:
           read_committed
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-#    listener:
-#      ack-mode: manual
+    listener:
+      ack-mode: manual

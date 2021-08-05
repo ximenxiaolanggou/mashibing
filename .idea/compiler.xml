@@ -8,10 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="09_Zookeeper" />
+        <module name="18_CICD" />
         <module name="01_Basics" />
         <module name="cloud-eureka" />
         <module name="07_SpringBoot_Kafka" />
         <module name="01_JUC2019" />
+        <module name="17_OpenVPN" />
         <module name="12_Sharding-Shpere" />
         <module name="02_JVM" />
         <module name="03_Tank" />
@@ -20,7 +22,9 @@
         <module name="13_K8S_Cluster_Deployment" />
         <module name="11_MyCat" />
         <module name="16_LeetCode" />
+        <module name="20_认证_授权" />
         <module name="06_Kafka" />
+        <module name="19_Jenkins" />
         <module name="10_RocketMQ" />
       </profile>
     </annotationProcessing>
@@ -46,6 +50,10 @@
       <module name="13_K8S_Cluster_Deployment" options="-parameters" />
       <module name="14_Redis" options="-parameters" />
       <module name="16_LeetCode" options="-parameters" />
+      <module name="17_OpenVPN" options="-parameters" />
+      <module name="18_CICD" options="-parameters" />
+      <module name="19_Jenkins" options="-parameters" />
+      <module name="20_认证_授权" options="-parameters" />
       <module name="cloud-eureka" options="-parameters" />
     </option>
   </component>

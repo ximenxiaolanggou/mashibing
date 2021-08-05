@@ -1,11 +1,23 @@
+import org.apache.kafka.clients.admin.AdminClient;
+import org.apache.kafka.clients.admin.CreateTopicsResult;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
+import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.core.KafkaOperations;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
 import top.damoncai.kafka.App;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author zhishun.cai
@@ -20,9 +32,38 @@ public class Test {
     private KafkaTemplate<String,String> template;
 
     @org.junit.Test
-    public void produce() {
-        template.send("topic01","key","value");
+    @Transactional
+    public void produceCycle() {
+        template.send("topic-curve-cycle","IOT-SN01","value - cycle");
     }
+
+    @org.junit.Test
+    @Transactional
+    public void produceSensor() {
+        ListenableFuture<SendResult<String, String>> send = template.send("topic-curve-sensor", "IOT-SN02", "value - sensor");
+        send.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+            @Override
+            public void onFailure(Throwable throwable) {
+                // TODO 更新数据发送状态
+                System.out.println("onFailure");
+            }
+            @Override
+            public void onSuccess(SendResult<String, String> stringStringSendResult) {
+                // TODO 更新数据发送状态
+                System.out.println("onSuccess");
+            }
+        });
+    }
+
+    @org.junit.Test
+    @Transactional
+    public void produceCycleAndSensor() {
+        template.send("topic-curve-cycle","IOT-SN01","value - cycle");
+        template.send("topic-curve-sensor","IOT-SN02","value - sensor");
+    }
+
+
+
 
     /**
      * 如果生产者开始事务   transaction-id-prefix: transaction-id-
@@ -36,7 +77,13 @@ public class Test {
         template.executeInTransaction(new KafkaOperations.OperationsCallback<String, String, Object>() {
             @Override
             public Object doInOperations(KafkaOperations kafkaOperations) {
-                return kafkaOperations.send(new ProducerRecord("topic01","key","value transaction"));
+                //Cycle
+                kafkaOperations.send(new ProducerRecord("topic04",1,"key" ,"value transaction"));
+                // 6 Sensor
+                kafkaOperations.send(new ProducerRecord("topic04",1,"key","value transaction"));
+                // EO
+                kafkaOperations.send(new ProducerRecord("topic04",1,"key","value transaction"));
+                return true;
             }
         });
     }

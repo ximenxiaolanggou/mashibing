@@ -47,7 +47,7 @@ make install [/opt/redis5] # 后面接安装路径，不写有默认的安装路
 vi /etc/profile
 
 export REDIS_HOME=/usr/local
-export PATH=$PATH:$REDIS_HOME/source /etc/profile
+export PATH=$PATH:$REDIS_HOME/bin
 
 source /etc/profile
 ```

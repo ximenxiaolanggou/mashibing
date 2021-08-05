@@ -31,5 +31,8 @@
     <file url="file://$PROJECT_DIR$/13_K8S_Cluster_Deployment/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/14_Redis/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/16_LeetCode/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/17_OpenVPN/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/18_CICD/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/19_Jenkins/src/main/java" charset="UTF-8" />
   </component>
 </project>
