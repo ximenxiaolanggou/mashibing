@@ -18,15 +18,28 @@ import java.util.Arrays;
  */
 public class LeetCode_28_strStr {
     public static void main(String[] args) {
-        String haystack = "hello";
-        String needle  = "ll";
+        String haystack = "aaa";
+        String needle  = "a";
         int index = strStr(haystack, needle);
         System.out.println(index);
     }
 
     public static int strStr(String haystack, String needle) {
-        int index = -1;
+        if(needle.equals("")) return 0;
 
-        return index;
+        for (int i = 0; i <= haystack.length() - needle.length(); i++) {
+            int j;
+            for (j = 0; j < needle.length(); j++) {
+                if(needle.charAt(j) != haystack.charAt(i+j)) {
+                    break;
+                }
+            }
+
+            // 全部匹配(正常执行完匹配过程)
+            if(j == needle.length()) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
