@@ -31,9 +31,11 @@ public class Consumer {
         return record.value()+" mashibing edu";
     }
 
-    @KafkaListeners(value = {@KafkaListener(topics = {"topic02"})})
+    @KafkaListeners(value = {@KafkaListener(topics = {"topic05"})})
     public void listenner2(ConsumerRecord<?, ?> record) {
-        System.err.println("msg: " + record.value());
+        Object key = record.key();
+        System.err.println("key：" + key + " msg: " + record.value());
+
     }
 
     @KafkaListeners(value = {@KafkaListener(topics = {"topic-curve-cycle"},groupId = "grouop-curve-cycle-save")})
@@ -54,6 +56,11 @@ public class Consumer {
         long offset = record.offset();
         String key = (String) record.key(); // VPN
         String value = (String) record.value(); // 数据
+
+        System.out.println("offset：" + offset);
+        System.out.println("key：" + key);
+        System.out.println("value：" + value);
+
         try {
             // TODO 存储业务
             acknowledgment.acknowledge();
@@ -61,10 +68,6 @@ public class Consumer {
             // TODO SAVE_OR_UPDATE（保存 存储失败数据的偏移量）
             throw e;
         }
-
-        System.out.println("offset：" + offset);
-        System.out.println("key：" + key);
-        System.out.println("value：" + value);
     }
 
 
@@ -76,10 +79,10 @@ public class Consumer {
         String value = (String) record.value();
         if("key3".equals(key)) {
             System.out.println("Auth：" + key + " - offset" + offset);
-            acknowledgment.acknowledge();
         }else {
             System.out.println("UnAuth ~~ " + key + " - offset" + offset);
         }
+        acknowledgment.acknowledge();
 
 //        try {
 //            if(key.equals("key3")) {
@@ -95,5 +98,18 @@ public class Consumer {
 ////            acknowledgment.acknowledge();
 //        }
 //        acknowledgment.acknowledge();
+    }
+
+    public static void main(String[] args) {
+        System.out.println("16:15:20.307 [main] DEBUG oraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaag.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class TestDemo]".length());
+    }
+
+    @KafkaListeners(value = {@KafkaListener(topics = {"topic-test"})})
+    public void damo(ConsumerRecord<?, ?> record, Acknowledgment acknowledgment) {
+        long offset = record.offset();
+        String key = (String) record.key();
+        String value = (String) record.value();
+        System.out.println("offset：" + offset);
+        acknowledgment.acknowledge();
     }
 }

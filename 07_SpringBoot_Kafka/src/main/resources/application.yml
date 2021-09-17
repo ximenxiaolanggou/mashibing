@@ -1,6 +1,7 @@
+
 spring:
   kafka:
-    bootstrap-servers: 192.168.111.11:9092,192.168.111.12:9092,192.168.111.13:9092
+    bootstrap-servers: 192.168.111.16:9092
     producer:
       acks: all # ack 级别 保证数据不会丢失
       retries: 5
@@ -24,3 +25,5 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     listener:
       ack-mode: manual
+server:
+  port: 9999

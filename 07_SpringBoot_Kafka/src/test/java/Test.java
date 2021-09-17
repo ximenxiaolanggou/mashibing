@@ -1,12 +1,10 @@
-import org.apache.kafka.clients.admin.AdminClient;
-import org.apache.kafka.clients.admin.CreateTopicsResult;
-import org.apache.kafka.clients.admin.NewTopic;
+import lombok.SneakyThrows;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.core.KafkaOperations;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -39,20 +37,28 @@ public class Test {
 
     @org.junit.Test
     @Transactional
-    public void produceSensor() {
-        ListenableFuture<SendResult<String, String>> send = template.send("topic-curve-sensor", "IOT-SN02", "value - sensor");
-        send.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
-            @Override
-            public void onFailure(Throwable throwable) {
-                // TODO 更新数据发送状态
-                System.out.println("onFailure");
-            }
-            @Override
-            public void onSuccess(SendResult<String, String> stringStringSendResult) {
-                // TODO 更新数据发送状态
-                System.out.println("onSuccess");
-            }
-        });
+    public void produceSensor() throws JSONException {
+
+        for (int i = 0; i < 100; i++) {
+            JSONObject obj = new JSONObject();
+            obj.put("name", i);
+            System.out.println(" hello " + i);
+            ListenableFuture<SendResult<String, String>> send = template.send("topic-curve-sensor", "IOT-SN02", "value - sensor");
+            send.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+                @Override
+                public void onFailure(Throwable throwable) {
+                    // TODO 更新数据发送状态
+                    System.out.println("onFailure");
+                }
+                @SneakyThrows
+                @Override
+                public void onSuccess(SendResult<String, String> stringStringSendResult) {
+                    // TODO 更新数据发送状态
+                    Thread.sleep(500);
+                    System.out.println("onSuccess：" + obj.get("name"));
+                }
+            });
+        }
     }
 
     @org.junit.Test
@@ -60,6 +66,13 @@ public class Test {
     public void produceCycleAndSensor() {
         template.send("topic-curve-cycle","IOT-SN01","value - cycle");
         template.send("topic-curve-sensor","IOT-SN02","value - sensor");
+    }
+
+    @org.junit.Test
+    @Transactional
+    public void topic02() {
+        template.send("topic02","key1","value - cycle1");
+        template.send("topic02","key1","value - cycle2");
     }
 
 
@@ -78,11 +91,11 @@ public class Test {
             @Override
             public Object doInOperations(KafkaOperations kafkaOperations) {
                 //Cycle
-                kafkaOperations.send(new ProducerRecord("topic04",1,"key" ,"value transaction"));
+                kafkaOperations.send(new ProducerRecord("topic05",0,"key" ,"value transaction1"));
                 // 6 Sensor
-                kafkaOperations.send(new ProducerRecord("topic04",1,"key","value transaction"));
+                kafkaOperations.send(new ProducerRecord("topic05",0,"key","value transaction1"));
                 // EO
-                kafkaOperations.send(new ProducerRecord("topic04",1,"key","value transaction"));
+                kafkaOperations.send(new ProducerRecord("topic05",0,"key","value transaction1"));
                 return true;
             }
         });
