@@ -5,7 +5,7 @@ package top.damoncai.basics.class01;
  * @date 2021/2/27 10:44
  */
 
-public class Code04_BSExist {
+public class   Code04_BSExist {
 
     public static void main(String[] args) {
         int[] arrs = {1,2,3,4,5,9,11};

@@ -109,7 +109,7 @@ public class Consumer {
         long offset = record.offset();
         String key = (String) record.key();
         String value = (String) record.value();
-        System.out.println("offset：" + offset);
+        System.out.println("value：" + value);
         acknowledgment.acknowledge();
     }
 }
