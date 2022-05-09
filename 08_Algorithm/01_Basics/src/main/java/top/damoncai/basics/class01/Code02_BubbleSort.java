@@ -7,7 +7,7 @@ import java.util.Arrays;
  * @date 2021/2/27 10:18
  */
 
-public class Code02_BubbleSort {
+public class  Code02_BubbleSort {
 
     /**
      * 冒泡排序
