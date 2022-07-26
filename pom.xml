@@ -33,6 +33,7 @@
         <module>17_OpenVPN</module>
         <module>18_CICD</module>
         <module>19_Jenkins</module>
+        <module>21_JUC2022</module>
     </modules>
     <dependencies>
         <dependency>
