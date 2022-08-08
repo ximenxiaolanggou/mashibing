@@ -5,7 +5,7 @@ import org.openjdk.jol.info.ClassLayout;
 /**
  * 锁升级
  */
-public class Demo_01_synchronized_Level_Up {
+public class Demo_02_synchronized_Level_Up {
     public static void main(String[] args) throws InterruptedException {
         Thread.sleep(5000);
         Object o = new Object();

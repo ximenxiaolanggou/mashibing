@@ -2,11 +2,6 @@ package top.damoncai.leetcode;
 
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-
 /**
  * @author zhishun.cai
  * @date 2021/5/21 10:27

@@ -1,5 +1,6 @@
 package top.damoncai.kafka.consumer;
 
+import org.apache.kafka.clients.admin.KafkaAdminClient;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class Consumer {
 
     @Autowired
     private KafkaTemplate<String,String> template;
+
+    @Autowired
+    private KafkaConsumer consumer;
 
     @KafkaListeners(value = {@KafkaListener(topics = {"topic01"})})
     @SendTo(value = {"topic02"})
