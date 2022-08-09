@@ -40,8 +40,4 @@ public class Demo_04_ReentryReadWriteLock {
             readLock.unlock();
         }
     }
-
-    public static void write() {
-        writeLock.lock();
-    }
 }
