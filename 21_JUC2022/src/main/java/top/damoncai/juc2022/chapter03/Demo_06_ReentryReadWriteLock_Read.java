@@ -20,5 +20,6 @@ public class Demo_06_ReentryReadWriteLock_Read {
 
     public static void main(String[] args) throws InterruptedException {
         readLock.lock();
+        readLock.unlock();
     }
 }
