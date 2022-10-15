@@ -1,0 +1,30 @@
+# ????????
+
+spring:
+  shardingsphere:
+    props:
+      sql:
+        show: true
+    datasource:
+      names: ds1 # #????????
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/sharding_sphere_1?serverTimezone=UTC
+        username: root
+        password: zhishun.cai
+    sharding:
+      tables:
+        orders:
+          actual-data-nodes: ds1.orders_$->{1..2} # ??orders????????????????????????
+          key-generator:
+            column: id
+            type: SNOWFLAKE
+          table-strategy:
+            inline:
+              sharding-colum: id
+              algorithm-expression: orders_${id % 2 + 1}
+
+
+
+

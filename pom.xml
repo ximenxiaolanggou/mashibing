@@ -34,7 +34,40 @@
         <module>18_CICD</module>
         <module>19_Jenkins</module>
         <module>21_JUC2022</module>
+        <module>22_ShardingSphere5</module>
     </modules>
+
+    <properties>
+        <mp.version>3.3.1</mp.version>
+        <shardingsphere.version>5.1.1</shardingsphere.version>
+        <dynamic-datasource.version>2.5.7</dynamic-datasource.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- mp -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mp.version}</version>
+            </dependency>
+
+            <!-- datasource -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-datasource.version}</version>
+            </dependency>
+
+            <!-- shardingsphere -->
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
+                <version>${shardingsphere.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
