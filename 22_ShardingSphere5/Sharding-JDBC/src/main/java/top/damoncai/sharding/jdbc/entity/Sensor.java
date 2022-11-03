@@ -8,11 +8,12 @@ import lombok.ToString;
 
 @Data
 @ToString
-@TableName("orders")
-public class Orders {
+@TableName("sensors")
+public class Sensor {
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
-    private Integer orderNo;
-    private Integer userId;
-    private Double amount;
+    private String des;
+    private Long cycleId;
+    private Long proId;
+    private Long moldId;
 }
