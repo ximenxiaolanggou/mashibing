@@ -1,7 +1,7 @@
 
 spring.shardingsphere.mode.type=Memory
 # 配置数据源的名称
-spring.shardingsphere.datasource.names=ds1,ds2
+spring.shardingsphere.datasource.names=ds1
 # 配置数据源的具体内容
 spring.shardingsphere.datasource.ds1.type=com.zaxxer.hikari.HikariDataSource
 spring.shardingsphere.datasource.ds1.driver-class-name=com.mysql.jdbc.Driver
@@ -9,14 +9,7 @@ spring.shardingsphere.datasource.ds1.url=jdbc:mysql://127.0.0.1:3306/sharding_sp
 spring.shardingsphere.datasource.ds1.username=root
 spring.shardingsphere.datasource.ds1.password=zhishun.cai
 
-spring.shardingsphere.datasource.ds2.type=com.zaxxer.hikari.HikariDataSource
-spring.shardingsphere.datasource.ds2.driver-class-name=com.mysql.jdbc.Driver
-spring.shardingsphere.datasource.ds2.url=jdbc:mysql://127.0.0.1:3306/sharding_sphere_1?serverTimezone=UTC
-spring.shardingsphere.datasource.ds2.username=root
-spring.shardingsphere.datasource.ds2.password=zhishun.cai
-
-# 标准分片表配置(指定orders表的分布情况，配置表在哪个数据库中，表名称是什么)
-select * from molds
+  # 标准分片表配置(指定orders表的分布情况，配置表在哪个数据库中，表名称是什么)
 spring.shardingsphere.rules.sharding.tables.molds.actual-data-nodes=ds1.mold_$->{0..1}
 spring.shardingsphere.rules.sharding.tables.products.actual-data-nodes=ds1.product_$->{0..1}
 spring.shardingsphere.rules.sharding.tables.cycles.actual-data-nodes=ds1.cycle_$->{0..1}
@@ -72,17 +65,17 @@ spring.shardingsphere.rules.sharding.sharding-algorithms.inline_table_molds.type
 # 分片算法属性配置
 spring.shardingsphere.rules.sharding.sharding-algorithms.inline_table_molds.props.algorithm-expression=mold_$->{id%2}
 
-
-
-#指定orders表里主键id生成策略
-# spring.shardingsphere.rules.sharding.tables.orders.key-generate-strategy.column=id
-# spring.shardingsphere.rules.sharding.tables.orders.key-generate-strategy.key-generator-name=snowflake
+  
+  
+  #指定orders表里主键id生成策略
+  # spring.shardingsphere.rules.sharding.tables.orders.key-generate-strategy.column=id
+  # spring.shardingsphere.rules.sharding.tables.orders.key-generate-strategy.key-generator-name=snowflake
 
 # 绑定表
 spring.shardingsphere.rules.sharding.binding-tables[0]=molds,products,cycles,sensors
 
 # 广播表
 # spring.shardingsphere.rules.sharding.broadcast-tables[0]=users
-#打开sql输出日志
+  #打开sql输出日志
 spring.shardingsphere.props.sql-show=true
 

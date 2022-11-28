@@ -167,33 +167,38 @@ vim server.conf
 修改如下配置
 
 ```ini
-# 监听端口：默认1194，可自定义修改
 port 1194
-# 使用TCP协议
-proto tcp
-;proto udp
-# 证书文件
+# # ca证书路径
 ca /usr/local/openvpn/ca.crt
+# # 服务器证书
 cert /usr/local/openvpn/server.crt
+# # 服务器秘钥
 key /usr/local/openvpn/server.key
-# pem文件
+ # 秘钥交换协议：注意名称
 dh /usr/local/openvpn/dh2048.pem
-# 给客服端分配的地址池：不能和服务器内网ip一个网段
+# # 给客服端分配的地址池：不能和服务器内网ip一个网段
 server 10.8.0.0 255.255.255.0
-# IP配置文件
+# # IP配置文件
 ifconfig-pool-persist /usr/local/openvpn/ipp.txt
-# 允许客户端访问服务器上的其他网络
+# # 开启DHCP
 push "route 10.0.4.0 255.255.255.0"
-# key文件
-tls-auth /usr/local/openvpn/ta.key 0
-# 加密方式
-cipher AES-256-GCM
-# 状态文件
+# # DHCP分配dns
+#push "dhcp-option DNS 114.114.114.114"
+#push "dhcp-option DNS 223.5.5.5"
+# # 没有这个key，注释掉
+;tls-auth ta.key 0 # This file is secret
+# # 传输数据压缩
+comp-lzo
+# # 状态文件
 status /usr/local/openvpn/openvpn-status.log
-# 日志文件
+# # 日志文件
 log /usr/local/openvpn/openvpn.log
-# 明确的退出通知（TCP模式需要设置为0）
-explicit-exit-notify 0
+
+# client-config-dir /usr/local/openvpn/ccd
+
+;dev tap
+dev tun
+
 
 dev tun
 ```
