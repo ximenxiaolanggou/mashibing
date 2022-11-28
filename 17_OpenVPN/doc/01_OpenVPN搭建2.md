@@ -194,6 +194,8 @@ status /usr/local/openvpn/openvpn-status.log
 log /usr/local/openvpn/openvpn.log
 # 明确的退出通知（TCP模式需要设置为0）
 explicit-exit-notify 0
+
+dev tun
 ```
 
 
@@ -211,7 +213,7 @@ push "dhcp-option DNS 223.5.5.5"
 启动firewalld防火墙
 systemctl start firewalld.service
 开放openvpn的监听端口以及协议
-firewall-cmd --add-port=1194/tcp --permanent
+firewall-cmd --add-port=1194/udp --permanent
 firewall-cmd --add-masquerade --permanent
 firewall-cmd --complete-reload
 ```
