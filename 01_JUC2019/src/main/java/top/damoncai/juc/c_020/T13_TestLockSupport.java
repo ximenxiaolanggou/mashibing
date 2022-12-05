@@ -20,7 +20,6 @@ public class T13_TestLockSupport {
         });
 
         t.start();
-
         LockSupport.unpark(t);
 
         /*try {
