@@ -3,23 +3,20 @@ package top.damoncai.system.chapter04;
 
 import java.util.Arrays;
 
+
 /**
- * 荷兰国旗问题
- *
- * 给定一个数组arr，和一个整数num。请把小于num的数放在数组的左边，等于num的数放在中间，大于num的数放在数组的右边。
- *
- * 要求额外空间复杂度O(1)，时间复杂度O(N)
+ * 随机快排
  */
-public class Demo_06_NetherlandsFlagProblem {
+public class Demo_09_RandomQuickSort {
 
     public static void main(String[] args) {
 
         int[] arr = generateRandomArray(10, 10);
-        int target = arr[5];
+        int target = arr[arr.length - 1];
 
         System.out.println("原始数组：" + Arrays.toString(arr) + "目标数为：" + target);
 
-        partition(arr, target);
+        quickSort2(arr, 0, arr.length - 1);
 
         System.out.println("结果数组：" + Arrays.toString(arr));
 
@@ -27,13 +24,31 @@ public class Demo_06_NetherlandsFlagProblem {
     }
 
     /**
+     * 快排
+     * @param arr
+     * @param L
+     * @param R
+     */
+    private static void quickSort2(int[] arr, int L, int R) {
+        if(L >= R)
+            return;
+        // 相对于快排2.0就是多了这一行代码，数组右侧数随机
+        swap(arr, L + (int) (Math.random() * (R - L + 1)), R);
+        int[] TRange = partition(arr, L, R);
+        System.out.println(Arrays.toString(TRange));
+        quickSort2(arr, L, TRange[0] - 1);
+        quickSort2(arr, TRange[1] + 1, R);
+    }
+
+    /**
      * 逻辑
      * @param arr
      */
-    private static void partition(int[] arr, int T) {
-        int L = -1;
-        int R = arr.length;
-        int C = 0;
+    private static int[] partition(int[] arr, int L , int R) {
+        int last = R;
+        int T = arr[R];
+        int C = L;
+        L--;
         while (C < R) {
             if(arr[C] == T)
                 C++;
@@ -51,8 +66,20 @@ public class Demo_06_NetherlandsFlagProblem {
                 R--;
 
             }
-
         }
+//        // 判断L 和 R是否紧挨着， 如果是代表中间不存在num数
+//        if((L + 1) == R) {
+//            // L 和 R紧挨着， 不存在中间num数，R和数组最后一个数交换
+//            swap(arr ,R, arr.length - 1);
+//        }else {
+//            // L 和 R不紧挨着， 存在中间num数，R前面一个数和数组最后一个数交换
+//            swap(arr ,R - 1, arr.length - 1);
+//        }
+
+        // 上面的一顿分析可以最终写成 ， R 和 数组最后一个数交换，无需关心L和R中间是否夹着num数，哪怕是存在R和arr.length - 1 的数交换玩后 R位子数>= R-1位置数
+        swap(arr ,R, last);
+
+        return new int[]{L + 1, R};
     }
 
     /**

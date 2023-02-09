@@ -2,6 +2,9 @@ package test;
 
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shardingsphere.infra.yaml.config.pojo.mode.YamlModeConfiguration;
+import org.apache.shardingsphere.spring.boot.ShardingSphereAutoConfiguration;
+import org.apache.shardingsphere.spring.boot.prop.SpringBootPropertiesConfiguration;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +24,7 @@ import top.damoncai.sharding.jdbc.mapper.SensorMapper;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -38,6 +42,9 @@ public class OrdersTest {
 
     @Autowired
     private MoldMapper moldMapper;
+
+    @Autowired
+    SpringBootPropertiesConfiguration springBootPropertiesConfiguration;
 
 
     @Test
