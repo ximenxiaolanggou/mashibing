@@ -35,6 +35,7 @@
         <module>19_Jenkins</module>
         <module>21_JUC2022</module>
         <module>22_ShardingSphere5</module>
+        <module>23_Distributed_lock</module>
     </modules>
 
     <properties>
