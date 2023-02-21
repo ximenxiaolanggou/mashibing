@@ -1,14 +1,11 @@
-package center.helloworld.kafka2022.chapter01_sample;
+package center.helloworld.kafka2022.chapter02_serializer;
 
-import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Properties;
 
@@ -27,22 +24,22 @@ public class Consumer {
         properties.put("bootstrap.servers","192.168.220.201:9092");
         // 设置String的序列化
         properties.put("key.deserializer", StringDeserializer.class);
-        properties.put("value.deserializer", StringDeserializer.class);
+        properties.put("value.deserializer", ObjectDeserializer.class);
         //properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"earliest");
         properties.put("group.id","group05");
 
         // 构建kafka生产者对象
-        KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
+        KafkaConsumer<String, User> consumer = new KafkaConsumer<>(properties);
         try {
             // 订阅主题
             consumer.subscribe(Collections.singleton("test"));
             while (true) {
-                ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1L));
-                for (ConsumerRecord<String, String> record : records) {
+                ConsumerRecords<String, User> records = consumer.poll(Duration.ofSeconds(1L));
+                for (ConsumerRecord<String, User> record : records) {
                     String key = record.key();
                     String topic = record.topic();
                     int partition = record.partition();
-                    String value = record.value();
+                    User value = record.value();
                     long offset = record.offset();
                     System.out.println("record begin =========");
                     System.out.println("topic: " + topic);
@@ -56,7 +53,7 @@ public class Consumer {
 
         }finally {
             // 释放链接
-            //consumer.close();
+            consumer.close();
         }
     }
 }

@@ -1,7 +1,6 @@
-package center.helloworld.kafka2022.chapter01_sample;
+package center.helloworld.kafka2022.chapter02_serializer;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
@@ -23,13 +22,13 @@ public class Producer {
         properties.put("bootstrap.servers","192.168.220.201:9092");
         // 设置String的序列化
         properties.put("key.serializer", StringSerializer.class);
-        properties.put("value.serializer", StringSerializer.class);
+        properties.put("value.serializer", ObjectSerializer.class);
 
         // 构建kafka生产者对象
-        KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
+        KafkaProducer<String, User> producer = new KafkaProducer<>(properties);
         try {
             // 构建消息
-            ProducerRecord<String,String> record = new ProducerRecord<String,String>("test",0, "key","hello");
+            ProducerRecord<String,User> record = new ProducerRecord<String,User>("test", "key",new User("张三",12));
             // 发送消息
             producer.send(record);
 

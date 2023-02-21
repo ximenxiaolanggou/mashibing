@@ -1,18 +1,19 @@
 package center.helloworld.kafka2022.chapter01_sample;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.util.Properties;
+import java.util.concurrent.Future;
 
 /**
  * @author zhishun.cai
  * @create 2023/2/21
- * @note 生产者
+ * @note 生产者 同步发送
  */
-public class Producer {
+public class Producer_Sync {
 
     public static void main(String[] args) {
 
@@ -29,9 +30,14 @@ public class Producer {
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
         try {
             // 构建消息
-            ProducerRecord<String,String> record = new ProducerRecord<String,String>("test",0, "key","hello");
+            ProducerRecord<String,String> record = new ProducerRecord<String,String>("test", "key","hello");
             // 发送消息
-            producer.send(record);
+            Future<RecordMetadata> future =producer.send(record);
+            RecordMetadata recordMetadata = future.get();
+            if(null!=recordMetadata){
+                System.out.println("offset:"+recordMetadata.offset()+","
+                        +"partition:"+recordMetadata.partition());
+            }
 
             System.out.println("message is sent.");
         }catch (Exception e) {

@@ -1,4 +1,4 @@
-package center.helloworld.kafka2022.chapter01_sample;
+package center.helloworld.kafka2022.chapter03_partitioner;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -24,6 +24,8 @@ public class Producer {
         // 设置String的序列化
         properties.put("key.serializer", StringSerializer.class);
         properties.put("value.serializer", StringSerializer.class);
+        //设置自定义分区
+        properties.put("partitioner.class",UserDefinedPartitioner.class);
 
         // 构建kafka生产者对象
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
