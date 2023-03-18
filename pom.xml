@@ -36,6 +36,9 @@
         <module>21_JUC2022</module>
         <module>22_ShardingSphere5</module>
         <module>23_Distributed_lock</module>
+        <module>24_Kafka_2022</module>
+        <module>25_DesignPatterns_2023</module>
+        <module>26_JVM</module>
     </modules>
 
     <properties>

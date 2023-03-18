@@ -10,6 +10,7 @@ public class Demo_07_Visible_Volatile {
     public static void main(String[] args) throws InterruptedException {
         new Thread(() -> {
             while (flag) {
+                // Thread.sleep和println()也能保证可见性
                 //...
             }
             System.out.println(Thread.currentThread().getName() + "：线程结束");
