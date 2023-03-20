@@ -29,7 +29,7 @@ public class Producer {
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
         try {
             // 构建消息
-            ProducerRecord<String,String> record = new ProducerRecord<String,String>("test",0, "key","hello");
+            ProducerRecord<String,String> record = new ProducerRecord<String,String>("testB",0, "key","hello");
             // 发送消息
             producer.send(record);
 
