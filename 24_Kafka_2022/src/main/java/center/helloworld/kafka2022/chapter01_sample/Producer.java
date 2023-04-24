@@ -1,10 +1,12 @@
 package center.helloworld.kafka2022.chapter01_sample;
 
+import cn.hutool.json.JSONUtil;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
 
+import java.util.HashMap;
 import java.util.Properties;
 
 /**
@@ -20,7 +22,7 @@ public class Producer {
         Properties properties = new Properties();
         // 指定连接的kafka服务器的地址  key值可以用 ProducerConfig类中的静态属性配置 ,
         // 多个服务器逗号隔开
-        properties.put("bootstrap.servers","192.168.220.201:9092");
+        properties.put("bootstrap.servers","192.168.111.11:9092,192.168.111.12:9092,192.168.111.13:9092");
         // 设置String的序列化
         properties.put("key.serializer", StringSerializer.class);
         properties.put("value.serializer", StringSerializer.class);
@@ -29,7 +31,13 @@ public class Producer {
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
         try {
             // 构建消息
-            ProducerRecord<String,String> record = new ProducerRecord<String,String>("testB",0, "key","hello");
+            HashMap<Object, Object> map = new HashMap<>();
+            map.put("moldId","asd");
+            map.put("cycleTimestamp","2023-03-27");
+            map.put("senId","asd");
+            map.put("monId","asd");
+            map.put("monType","asd");
+            ProducerRecord<String,String> record = new ProducerRecord<String,String>("topic-saved-dataSensorMonitor",0, "key", JSONUtil.toJsonStr(map));
             // 发送消息
             producer.send(record);
 
