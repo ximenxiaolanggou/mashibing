@@ -39,6 +39,8 @@
         <module>24_Kafka_2022</module>
         <module>25_DesignPatterns_2023</module>
         <module>26_JVM</module>
+        <module>27_NIO</module>
+        <module>28_Netty</module>
     </modules>
 
     <properties>
