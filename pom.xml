@@ -41,6 +41,7 @@
         <module>26_JVM</module>
         <module>27_NIO</module>
         <module>28_Netty</module>
+        <module>29_RocketMQ_4</module>
     </modules>
 
     <properties>

@@ -12,14 +12,20 @@ import java.util.Date;
  * @note 摇号结果封装类
  */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class LotteryResult {
 
     /**
      * 摇号的用户ID
      */
     private Long userId;
+
+    public LotteryResult(Long userId, String msg, Date datetime) {
+        this.userId = userId;
+        this.msg = msg;
+        this.datetime = datetime;
+    }
+
+    public LotteryResult() {}
 
     /**
      * 摇号结果
