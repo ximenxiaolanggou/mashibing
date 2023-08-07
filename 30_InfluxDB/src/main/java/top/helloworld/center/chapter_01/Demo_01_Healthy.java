@@ -8,7 +8,7 @@ public class Demo_01_Healthy {
 
     @Test
     public void healthy() {
-        String address = "http://192.168.220.201:8086/";
+        String address = "http://192.168.100.200:8086/";
         String token = "qLPRCB8-8K46drxw7L1M1O2ClN8QO6-j66-1Ow6jDEoRnvMDbkDjtk5jzdKTPsLj-GM0Kaaff6hcZyYGjH8lIg==";
 
         // 创建客户端
