@@ -15,28 +15,28 @@ import java.time.Instant;
  */
 
 @Data
-@Measurement(name = "person")
+@Measurement(name = "cycle")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person {
+public class Cycle {
 
-    /**
-     * 性别
-     */
     @Column(tag = true)
-    private String gender;
+    private String mold_id;
 
-    /**
-     * 用户名
-     */
-    @Column
-    private String name;
+    @Column(tag = true)
+    private String pro_id;
 
-    /**
-     * 年龄
-     */
     @Column
-    private Integer age;
+    private int id;
+
+    @Column
+    private int cycle_num;
+
+    @Column
+    private int sensor_number;
+
+    @Column
+    private Long cycleTimestamp;
 
     /**
      * 时间戳

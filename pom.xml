@@ -42,6 +42,7 @@
         <module>27_NIO</module>
         <module>28_Netty</module>
         <module>29_RocketMQ_4</module>
+        <module>31_JDK_9_19</module>
     </modules>
 
     <properties>
