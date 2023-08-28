@@ -25,7 +25,7 @@ public class Producer {
     @Before
     public void before() {
         Properties props = new Properties();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"master:9092,node1:9092,node2:9092");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.100.200:9092");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,StringSerializer.class.getName());
         producer = new KafkaProducer<String, String>(props);

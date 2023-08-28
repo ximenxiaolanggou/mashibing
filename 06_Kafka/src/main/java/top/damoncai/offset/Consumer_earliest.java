@@ -31,7 +31,7 @@ public class Consumer_earliest {
     public void before() {
         //连接参数
         Properties props = new Properties();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"master:9092,node1:9092,node2:9092");
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.100.200:9092");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,StringDeserializer.class.getName());
         //不存在偏移量的时候 从最早的消费 默认是earliest
