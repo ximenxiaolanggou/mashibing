@@ -28,7 +28,7 @@ public class Demo_03_Write_Pojo {
         // 获取查询API
         WriteApiBlocking writeApi = client.getWriteApiBlocking();
 
-        Person person = new Person("男", "张三12",12, Instant.now());
+        Person person = new Person("男", "康康",22, Instant.now());
         writeApi.writeMeasurement(WritePrecision.MS, person);
         client.close();
     }

@@ -8,6 +8,7 @@ import com.influxdb.client.write.Point;
 import org.junit.Test;
 
 import java.time.Instant;
+import java.util.Date;
 
 public class Demo_02_Write_Line_Protocol {
 
@@ -17,6 +18,7 @@ public class Demo_02_Write_Line_Protocol {
      */
     @Test
     public void lineProtocol() {
+        Date date = new Date();
         String org = "damoncai";
         String bucket = "example_java";
         String address = "http://192.168.100.200:8086/";

@@ -31,9 +31,8 @@ public class Demo_01_Query {
 
         String queryShell =
                 "from(bucket: \"example_java\")\n" +
-                        "  |> range(start: -2h)\n" +
-                        "  |> filter(fn: (r) => r[\"_measurement\"] == \"person\")\n" +
-                        "  |> filter(fn: (r) => r[\"gender\"] == \"男\")\n";
+                        "  |> range(start: -2d)\n" +
+                        "  |> filter(fn: (r) => r[\"_measurement\"] == \"person\")" ;
 
         List<FluxTable> res = queryApi.query(queryShell);
         List<Person> res2 = queryApi.query(queryShell, Person.class);
