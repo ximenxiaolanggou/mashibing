@@ -35,6 +35,7 @@ public class Person {
     /**
      * 年龄
      */
+    @Column
     private Integer age;
 
     /**

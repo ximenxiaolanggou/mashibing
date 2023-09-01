@@ -1,11 +1,9 @@
 package top.helloworld.center.chapter_04;
 
-import cn.hutool.json.JSON;
 import cn.hutool.json.JSONUtil;
 import com.influxdb.client.InfluxDBClient;
 import com.influxdb.client.InfluxDBClientFactory;
 import com.influxdb.client.QueryApi;
-import com.influxdb.client.domain.Query;
 import com.influxdb.query.FluxTable;
 import org.junit.Test;
 import top.helloworld.center.entity.Person;
@@ -46,6 +44,7 @@ public class Demo_01_Query {
 
 
 
+
     @Test
     public void queryRow() {
         String org = "damoncai";
@@ -66,5 +65,6 @@ public class Demo_01_Query {
 
         String res = queryApi.queryRaw(queryShell);
         System.out.println(JSONUtil.toJsonStr(res));
+
     }
 }
