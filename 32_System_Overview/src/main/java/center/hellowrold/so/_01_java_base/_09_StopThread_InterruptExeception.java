@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * interruptExeception 打断线程
  */
-public class _08_StopThread_InterruptExeception {
+public class _09_StopThread_InterruptExeception {
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new MyThreadInterruptExeception();
         t1.start();
