@@ -1,4 +1,4 @@
-package center.helloworld.juc2023._04_ThreadMethods;
+package center.helloworld.juc2023._03_ThreadMethods;
 
 /**
  * @author zhishun.cai
