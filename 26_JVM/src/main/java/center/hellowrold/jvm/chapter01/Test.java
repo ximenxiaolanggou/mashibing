@@ -15,5 +15,6 @@ public class Test {
 
         classLoader = String.class.getClassLoader();
         System.out.println(classLoader);
+
     }
 }

@@ -22,7 +22,7 @@ public class Producer {
         Properties properties = new Properties();
         // 指定连接的kafka服务器的地址  key值可以用 ProducerConfig类中的静态属性配置 ,
         // 多个服务器逗号隔开
-        properties.put("bootstrap.servers","192.168.111.11:9092,192.168.111.12:9092,192.168.111.13:9092");
+        properties.put("bootstrap.servers","192.168.111.61:32217");
         // 设置String的序列化
         properties.put("key.serializer", StringSerializer.class);
         properties.put("value.serializer", StringSerializer.class);
