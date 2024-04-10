@@ -45,6 +45,7 @@
         <module>30_InfluxDB</module>
         <module>31_JDK_9_19</module>
         <module>33_JUC2023</module>
+        <module>34_Zookeeper</module>
     </modules>
 
     <properties>
