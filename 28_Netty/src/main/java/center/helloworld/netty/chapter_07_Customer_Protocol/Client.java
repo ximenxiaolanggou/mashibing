@@ -13,6 +13,9 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.mqtt.MqttFixedHeader;
+import io.netty.handler.codec.mqtt.MqttMessageIdVariableHeader;
+import io.netty.handler.codec.mqtt.MqttUnsubAckMessage;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
@@ -20,7 +23,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
 
 public class Client {
-
     static final Logger log = LoggerFactory.getLogger(Client.class);
     public static void main(String[] args) {
         NioEventLoopGroup worker = new NioEventLoopGroup();
