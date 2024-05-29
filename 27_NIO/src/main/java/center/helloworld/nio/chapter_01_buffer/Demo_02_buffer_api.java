@@ -40,4 +40,17 @@ public class Demo_02_buffer_api {
     public void base_1() throws IOException {
         ByteBuffer buffer = ByteBuffer.allocate(10);
     }
+
+    @Test
+    public void t() {
+        ByteBuffer buffer = ByteBuffer.allocate(2);
+        buffer.put((byte) 1);
+        buffer.put((byte) 2);
+        buffer.flip();
+        System.out.println(buffer.get());
+        System.out.println(buffer.get());
+        System.out.println(buffer.capacity());
+        System.out.println(buffer.limit());
+
+    }
 }

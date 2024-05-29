@@ -45,6 +45,10 @@
         <module>30_InfluxDB</module>
         <module>31_JDK_9_19</module>
         <module>33_JUC2023</module>
+        <module>34_Kafka2024</module>
+        <module>35_Spring2024</module>
+        <module>36_MQTT_Client</module>
+        <module>37_Maven</module>
     </modules>
 
     <properties>

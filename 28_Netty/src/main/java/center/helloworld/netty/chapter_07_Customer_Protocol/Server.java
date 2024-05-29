@@ -1,8 +1,6 @@
 package center.helloworld.netty.chapter_07_Customer_Protocol;
 import center.helloworld.netty.chapter_06_StickyHalfPackage_Handler.Demo_03_LengthField_Server;
 import center.helloworld.netty.chapter_07_Customer_Protocol.handler.PersonCodec;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
@@ -19,6 +17,8 @@ import io.netty.handler.codec.DelimiterBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Server {
     static final Logger log = LoggerFactory.getLogger(Server.class);

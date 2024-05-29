@@ -30,7 +30,7 @@ public class Consumer {
     public void before() {
         //连接参数
         Properties props = new Properties();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"master:9092,node1:9092,node2:9092");
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.100.88:9099");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,StringDeserializer.class.getName());
         props.put(ConsumerConfig.GROUP_ID_CONFIG,"group01");
